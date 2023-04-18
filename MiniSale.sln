@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniSale.Interfaces", "MiniSale.Interfaces\MiniSale.Interfaces.csproj", "{4E163165-24BD-4AC9-A9F5-82B75F13442A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniSale.Api", "MiniSale.Api\MiniSale.Api.csproj", "{FDE380E5-CE42-4F41-BCB4-7E72A172BB7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E163165-24BD-4AC9-A9F5-82B75F13442A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E163165-24BD-4AC9-A9F5-82B75F13442A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E163165-24BD-4AC9-A9F5-82B75F13442A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E163165-24BD-4AC9-A9F5-82B75F13442A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDE380E5-CE42-4F41-BCB4-7E72A172BB7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDE380E5-CE42-4F41-BCB4-7E72A172BB7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDE380E5-CE42-4F41-BCB4-7E72A172BB7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDE380E5-CE42-4F41-BCB4-7E72A172BB7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {707C792D-F626-4305-A82E-617FA4F3120A}
+	EndGlobalSection
+EndGlobal
