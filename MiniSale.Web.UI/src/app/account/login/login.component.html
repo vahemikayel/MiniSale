@@ -1,0 +1,18 @@
+<div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-signin">
+        <img src="\assets\images\png\logo.png" class="logo-size" alt="Green Pinguin LLC">
+        <h1 class="h3 mb-3 fw-normal">Login</h1>
+        <mat-form-field appearance="fill">
+            <mat-label>User Name</mat-label>
+            <input matInput formControlName="userName" placeholder="Placeholder">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" [type]="'password'" placeholder="Placeholder">
+        </mat-form-field>
+        <br>
+        <div>
+            <button mat-raised-button [disabled]="loginForm.invalid" type="submit">Save</button>
+        </div>
+    </form>
+</div>

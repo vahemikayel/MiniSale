@@ -130,7 +130,7 @@ namespace MiniSale.Api
                 o.ReportApiVersions = true;
 
                 o.Conventions.Controller<AccountController>();
-                o.Conventions.Controller<InformerController>();
+                o.Conventions.Controller<ManagementController>();
                 o.Conventions.Controller<ReportController>();
             });
         }

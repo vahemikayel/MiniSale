@@ -1,0 +1,17 @@
+<mat-toolbar class="toolbar-color">
+    <img src="\assets\images\png\logo.png" class="logo-size" alt="Green Pinguin LLC">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <a href="https://www.linkedin.com/in/vahe-mikayelyan-0673b8143/" target="_blank" class="link-color">Green Pinguin LLC</a>
+    </button>
+    <span class="spacer"></span>
+    <ng-container *ngIf="!isAuthorized">
+        <a mat-button routerLink="/account/login" routerLinkActive="active">Log in</a>
+        <a mat-button routerLink="/account/register" routerLinkActive="active">Sign up</a>
+    </ng-container>
+    <ng-container *ngIf="isAuthorized">
+        <a mat-button routerLinkActive="active" routerLink="/manage/products">Products</a>
+        <a mat-button routerLinkActive="active" routerLink="/manage/sale">Sale</a>
+        <a mat-button routerLinkActive="active" routerLink="/manage/reports">Reports</a>
+        <a mat-button routerLinkActive="active" (click)="logout()">Log Out</a>
+    </ng-container>
+</mat-toolbar>

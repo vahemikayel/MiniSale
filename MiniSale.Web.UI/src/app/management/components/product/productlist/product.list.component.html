@@ -1,0 +1,80 @@
+<form>
+  <form (ngSubmit)="onSubmitGenerate()">
+    <mat-form-field>
+      <mat-label>Product List Count</mat-label>
+      <input matInput type="number" placeholder="Count" name="count" [(ngModel)]="formData.count">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price Min</mat-label>
+      <input matInput type="number" placeholder="Price Min" name="priceMin" [(ngModel)]="formData.priceMin">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price Max</mat-label>
+      <input matInput type="number" placeholder="Price Max" name="priceMax" [(ngModel)]="formData.priceMax">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>PLU Min</mat-label>
+      <input matInput type="number" placeholder="PLU Min" name="pluMin" [(ngModel)]="formData.pluMin">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>PLU Max</mat-label>
+      <input matInput type="number" placeholder="PLU Max" name="pluMax" [(ngModel)]="formData.pluMax">
+    </mat-form-field>
+
+    <button mat-raised-button type="submit">Generate Product List</button>
+  </form>
+
+  <div class="button-row">
+    <button mat-raised-button color="primary" (click)="onAdd()">Add</button>
+    <button mat-raised-button color="accent" (click)="onEdit()">Edit</button>
+    <button mat-raised-button color="warn" (click)="onRemove()">Remove</button>
+  </div>
+
+  
+
+<table mat-table [dataSource]="dataSource" matSort>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)">
+  </tr>
+
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let product">{{product.name}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="barCode">
+      <th mat-header-cell *matHeaderCellDef>Bar Code</th>
+      <td mat-cell *matCellDef="let product">{{product.barCode}}</td>
+    </ng-container>
+    
+      <ng-container matColumnDef="PLU">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>PLU</th>
+        <td mat-cell *matCellDef="let product">{{product.PLU | number}}</td>
+      </ng-container>
+  
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+      <td mat-cell *matCellDef="let product">{{product.price | currency}}</td>
+    </ng-container>
+  </table>
+</form>
