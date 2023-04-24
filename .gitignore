@@ -402,4 +402,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-/MiniSale.Web.UI/.angular/cache/15.2.6
