@@ -19,7 +19,7 @@ namespace MiniSale.Generic.Repository.Repositories
 
         T Remove(T entity);
 
-        Task<int> Remove(Expression<Func<T, bool>> predicate);
+        Task<int> Remove(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);
 
         IQueryable<T> GetAll();
 

@@ -58,11 +58,11 @@ namespace MiniSale.Generic.Repository.Repositories
             return res.Entity;
         }
 
-        public async Task<int> Remove(Expression<Func<T, bool>> predicate)
+        public async Task<int> Remove(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
         {
             return await _context.Set<T>()
                                  .Where(predicate)
-                                 .ExecuteDeleteAsync();
+                                 .ExecuteDeleteAsync(cancellationToken);
         }
 
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken)

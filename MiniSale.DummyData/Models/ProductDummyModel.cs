@@ -9,10 +9,11 @@ namespace MiniSale.DummyData.Models
 {
     public class ProductDummyModel : IProduct
     {
-        public Guid Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public decimal Price { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string BarCode { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int PLU { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+
+        public decimal Price { get; set; }
+        public string BarCode { get; set; }
+        public int PLU { get; set; }
     }
 }
