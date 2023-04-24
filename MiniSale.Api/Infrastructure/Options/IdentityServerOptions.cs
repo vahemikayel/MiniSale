@@ -1,0 +1,9 @@
+﻿namespace MiniSale.Api.Infrastructure.Options
+{
+    public class IdentityServerOptions
+    {
+        public static readonly string SectionName = "IdentityServer";
+
+        public InputLengthRestrictionsOptions InputLengthRestrictions { get; set; }
+    }
+}
