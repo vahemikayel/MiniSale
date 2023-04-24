@@ -50,7 +50,7 @@ namespace MiniSale.Api.Infrastructure.Middlewares
                 else
                 {
                     context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                    response = new ApiException(context.Response.StatusCode, ex.Message, ex.StackTrace?.ToString());
+                    response = new ApiExceptionModel(context.Response.StatusCode, ex.Message, ex.StackTrace?.ToString());
                     responseJson = JsonSerializer.Serialize(response, jsonOptions);
                 }
 

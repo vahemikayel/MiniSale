@@ -34,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MiniSale.DummyData\MiniSale.DummyData.csproj" />
     <ProjectReference Include="..\MiniSale.Generic.Repository\MiniSale.Generic.Repository.csproj" />
     <ProjectReference Include="..\MiniSale.Interfaces\MiniSale.Interfaces.csproj" />
   </ItemGroup>

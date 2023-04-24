@@ -7,6 +7,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
+using MiniSale.Api.Services;
 
 namespace MiniSale.Api.Application.Commands.Account
 {

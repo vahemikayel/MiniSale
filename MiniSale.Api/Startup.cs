@@ -14,7 +14,7 @@ using Microsoft.IdentityModel.Logging;
 using MiniSale.Api.Application.Authentication;
 using MiniSale.Api.Application.Behaviors;
 using MiniSale.Api.Certificate;
-using MiniSale.Api.Controllers;
+using MiniSale.Api.Controllers.V1;
 using MiniSale.Api.Infrastructure.AutoMapperExtensions;
 using MiniSale.Api.Infrastructure.Contexts.Identity;
 using MiniSale.Api.Infrastructure.Contexts.Management;
@@ -23,6 +23,7 @@ using MiniSale.Api.Infrastructure.Middlewares;
 using MiniSale.Api.Infrastructure.Options;
 using MiniSale.Api.Models.Account.Entity;
 using MiniSale.Api.Services;
+using MiniSale.Generic.Repository.Services;
 using Newtonsoft.Json.Converters;
 using Serilog;
 using System.Net;
@@ -52,8 +53,6 @@ namespace MiniSale.Api
 
             var mvcBuilder = services.AddMvc(option =>
             {
-                //option.OutputFormatters.Insert(0, new PowerAppOutputFormater());
-
                 option.EnableEndpointRouting = false;
 
                 option.Filters.Add<CommandValidationExceptionFilter>();
@@ -110,7 +109,9 @@ namespace MiniSale.Api
 
             ConfigureIdentity(services, dbConnections);
 
-            //services.AddTransient<IAccountService, AccountService>();
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork<ManagementContext>));
+
+            services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IIdentityService, IdentityService>();
 
             AddMediator(services);
@@ -216,13 +217,12 @@ namespace MiniSale.Api
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapRazorPages();
-            //    endpoints.MapDefaultControllerRoute();
-            //    endpoints.MapControllers();
-            //});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllers();
+            });
         }
         //var builder = WebApplication.CreateBuilder(args);
 

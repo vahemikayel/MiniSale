@@ -2,9 +2,9 @@
 
 namespace MiniSale.Api.Infrastructure.Exceptions
 {
-    public class ApiException : ResultModel
+    public class ApiExceptionModel : ResultModel
     {
-        public ApiException(int statusCode, string message = null, string details = null)
+        public ApiExceptionModel(int statusCode, string message = null, string details = null)
         {
             Details = details;
             StatusCode = statusCode;

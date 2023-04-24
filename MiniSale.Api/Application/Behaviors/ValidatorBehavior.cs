@@ -5,14 +5,15 @@ using MiniSale.Api.Infrastructure.Exceptions;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace MiniSale.Api.Application.Behaviors
 {
     public class ValidatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : BaseRequest<TResponse>
     {
-        private readonly IValidator<TRequest>[] _validators;
-        public ValidatorBehavior(IValidator<TRequest>[] validators) => _validators = validators;
+        private readonly IEnumerable<IValidator<TRequest>> _validators;
+        public ValidatorBehavior(IEnumerable<IValidator<TRequest>> validators) => _validators = validators;
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {

@@ -10,6 +10,7 @@ namespace MiniSale.Api.Infrastructure.AutoMapperExtensions
             var configuration = new MapperConfiguration(mc =>
             {
                 mc.AddProfile<AccountProfile>();
+                mc.AddProfile<ProductProfile>();
             });
 
             services.AddSingleton(sp => configuration.CreateMapper());

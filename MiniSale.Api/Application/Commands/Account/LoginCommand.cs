@@ -13,7 +13,7 @@ namespace MiniSale.Api.Application.Commands.Account
 {
     public class LoginCommand : BaseHttpRequest<LoginResponseModel>
     {
-        public string Email { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
 
         public bool RememberLogin { get; set; }
@@ -37,8 +37,8 @@ namespace MiniSale.Api.Application.Commands.Account
 
         public async Task<LoginResponseModel> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            var user = await _userManager.FindByNameAsync(request.Email);
-            var result = await _signInManager.PasswordSignInAsync(request.Email, request.Password, request.RememberLogin, lockoutOnFailure: false);
+            var user = await _userManager.FindByNameAsync(request.UserName);
+            var result = await _signInManager.PasswordSignInAsync(request.UserName, request.Password, request.RememberLogin, lockoutOnFailure: false);
             if (!result.Succeeded)
                 return new LoginResponseModel(result);
 

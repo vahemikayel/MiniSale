@@ -1,4 +1,4 @@
-﻿namespace MiniSale.Api.Controllers
+﻿namespace MiniSale.Api.Controllers.V1
 {
     public class ReportController
     {
